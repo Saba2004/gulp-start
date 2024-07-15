@@ -7,15 +7,17 @@
         display: flex;
         align-items: center;
         margin: 0 auto;
-        padding: 77px 84px;
+        padding: 15px 10px;
 
         @media (min-width:384px) and (max-width:768px) {
             padding: 21px;
         }
 
-        @media (max-width:383px) {
-            padding: 14px 10px;
+        @media (min-width:769px) {
+            padding: 77px 84px;
         }
+
+        
     }
 
     &__list {
@@ -67,9 +69,9 @@
         }
 
         a {
-            padding: 77px 18px;
+            padding: 10px 18px;
             @media (min-width:768px) and (max-width:1000px) {
-                padding: 77px 12px;
+                padding: 10px 12px;
             }
         }
     }
