@@ -1,0 +1,120 @@
+.main-nav {
+    background: #fff;
+
+
+
+    &__container {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        padding: 15px 10px;
+
+        @media (min-width:384px) and (max-width:768px) {
+            padding: 21px;
+        }
+
+        @media (min-width:769px) {
+            padding: 77px 84px;
+        }
+
+        
+    }
+
+    &__list {
+        @include clear-list;
+
+        display: none;
+
+        &--showed{
+            @media (min-width:768px) {
+                display: flex;
+                margin-left: auto;
+            }
+        }
+    }
+
+    &__logo {
+
+        img {
+            width: 74px;
+            height: 25px;
+          
+            @media (min-width:768px) {
+              width: 93px;
+              height: 31px;
+            }
+          }
+
+    }
+
+    &__button {
+        display: flex;
+        margin-left: auto;
+        gap: 29px;
+
+        @media (min-width:768px) {
+            gap: 44px;
+        }
+    }
+
+    &__item {
+        line-height: 37px;
+        font-size: 24px;
+        font-weight: 400;
+        color: #000000;
+
+        @media (min-width:768px) and (max-width:1000px){
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+        a {
+            padding: 10px 18px;
+            @media (min-width:768px) and (max-width:1000px) {
+                padding: 10px 12px;
+            }
+        }
+    }
+
+    &__burger {
+        @include clear-button;
+
+        @media (min-width:768px) {
+            display: none;
+        }
+
+        img {
+            width: 16px;
+            height: 11px;
+        }
+    }
+
+    &__find {
+        @include clear-button;
+
+        img{
+            width: 17px;
+            height: 16px;
+            @media (min-width:768px) {
+                width: 29px;
+                height: 27px;
+            }
+        }
+    }
+
+
+    &__shop {
+        @include clear-button;
+
+        img{
+            width: 19px;
+            height: 16px;
+            @media (min-width:768px) {
+                width: 32px;
+                height: 26px;
+            }
+        }
+        
+        
+    }
+}
