@@ -1,0 +1,24 @@
+.social{
+    @include clear-list;
+    display: flex;
+    justify-content: end;
+}
+
+.social__item{
+    color: black;
+}
+
+.social__tg{
+        width: 21px;
+        height: 18px;
+}
+
+.social__vk{
+        width: 24px;
+        height: 14px;
+}
+
+.social__item{
+    padding: 15px 10px 20px;
+}
+
