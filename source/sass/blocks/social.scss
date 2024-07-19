@@ -2,23 +2,21 @@
     @include clear-list;
     display: flex;
     justify-content: end;
-}
 
-.social__item{
-    color: black;
-}
+    &__item{
+        color: black;
+        padding: 15px 10px 20px;
+    }
 
-.social__tg{
+    &__tg{
         width: 21px;
         height: 18px;
-}
+    }
 
-.social__vk{
+    &__vk{
         width: 24px;
         height: 14px;
+    }
 }
 
-.social__item{
-    padding: 15px 10px 20px;
-}
 
