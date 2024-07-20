@@ -20,16 +20,66 @@
         
     }
 
+    &__contacts{
+        display: none;
+    }
+
+    &__menu{
+        display: none;
+        @media (max-width:767px) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 183px;
+            max-width: 400px;
+            width: 50%;
+            height: 100vh;
+            background-color: #EBEBEB;
+            z-index: 1000;
+            display: flex;
+            box-shadow: 0px 2.32px 1.97px 0px #00000006,
+            0px 5.39px 4.58px 0px #00000009,
+            0px 9.68px 8.22px 0px #0000000B,
+            0px 16.06px 13.65px 0px #0000000C,
+            0px 26.45px 22.49px 0px #0000000E,
+            0px 46.23px 39.3px 0px #00000011,
+            0px 100px 85px 0px #00000017;
+        }
+
+        @media (min-width:768px) {
+            display: block;
+            margin-left: auto;
+        }
+
+        &--showed{
+            @media (max-width:767px) {
+                display: flex;
+                flex-direction: column;
+
+                .main-nav__contacts{
+                    display: block;
+                }
+                .main-nav__close{
+                    display: block;
+                }
+                .main-nav__list{
+                    display: block;
+                    margin-top: 77px;
+                .main-nav__burger{
+                    display: none;
+                }
+            }
+            }
+        }
+    }
+
     &__list {
         @include clear-list;
 
         display: none;
-
-        &--showed{
-            @media (min-width:768px) {
-                display: flex;
-                margin-left: auto;
-            }
+        @media (min-width:768px) {
+            display: flex;
+            margin-left: auto;
         }
     }
 
@@ -38,7 +88,7 @@
         img {
             width: 74px;
             height: 25px;
-          
+
             @media (min-width:768px) {
               width: 93px;
               height: 31px;
@@ -47,10 +97,17 @@
 
     }
 
-    &__button {
+    &__buttons {
         display: flex;
         margin-left: auto;
         gap: 29px;
+
+        @media (max-width:767px) {
+            display: flex;
+            gap: 29px;
+            justify-content: space-between;
+            margin-left: auto;
+        }
 
         @media (min-width:768px) {
             gap: 44px;
@@ -63,21 +120,61 @@
         font-weight: 400;
         color: #000000;
 
+        @media (max-width:767px) {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: right;
+            background-color: #fff;
+        }
+
         @media (min-width:768px) and (max-width:1000px){
             font-size: 16px;
             line-height: 25px;
         }
 
         a {
-            padding: 10px 18px;
+            display: block;
+            padding: 13px 10px;
+            transition: 0.5s;
+
+            @media (max-width:767px) {
+                border: 1px solid #D9D9D9;
+                border-left-color: transparent;
+            }
+
             @media (min-width:768px) and (max-width:1000px) {
                 padding: 10px 12px;
+            }
+
+            @media (min-width:1000px) {
+                padding: 10px 18px;
+            }
+
+            &:hover{
+                @media (min-width:1280px) {
+                    transform: scale(1.3);
+                }
+            }
+        }
+
+        &:first-child a{
+            @media (max-width:767px) {
+                border-bottom-color: transparent;
+                border-top-color: transparent;
+            }
+        }
+
+        &:last-child a{
+            @media (max-width:767px) {
+                border-top-color: transparent;
             }
         }
     }
 
     &__burger {
         @include clear-button;
+        
 
         @media (min-width:768px) {
             display: none;
@@ -91,6 +188,8 @@
 
     &__find {
         @include clear-button;
+        position: relative;
+        z-index: 1001;
 
         img{
             width: 17px;
@@ -105,6 +204,8 @@
 
     &__shop {
         @include clear-button;
+        position: relative;
+        z-index: 1001;
 
         img{
             width: 19px;
@@ -117,4 +218,51 @@
         
         
     }
+
+    &__close{
+        @include clear-button;
+        display: none;
+        position: absolute;
+        right: 16px;
+        top: 20px;
+
+        @media (min-width:384px) {
+            top: 25px;
+        }
+
+        img{
+            width: 12px;
+            height: 12px;
+        }
+        
+    }
+
+    &__contacts{
+        margin-top: auto;
+    }
+
+    &__description{
+        margin-bottom: 13px;
+        text-align: right;
+        padding: 0px 10px 0px 20px;
+    }
+
+    &__counter{
+        position: absolute;
+        right: -12px;
+        top: -9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 18px;
+        padding: 0 2px;
+        height: 18px;
+        border-radius: 18px;
+        background-color: #D9D9D9;
+        font-weight: 400;
+        font-size: 11px;
+    }
+
+    
+
 }

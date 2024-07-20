@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ваш проект</title>
-    <link rel="stylesheet" href="css/style.min.css">
-  </head>
-  <body>
-    <nav class="main-nav"> 
-      <div class="container main-nav__container">
-        <a href="index.html" class="main-nav__logo"> 
-          <img src="img/logo.svg" alt="Логотип компании SLICK">
-        </a>
 
-        <ul class="main-nav__list main-nav__list--showed"> 
-          <li class="main-nav__item"> 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ваш проект</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <header class="main-nav">
+    <div class="container main-nav__container">
+      <a href="index.html" class="main-nav__logo">
+        <img src="img/logo.svg" alt="Логотип компании SLICK">
+      </a>
+      <nav class="main-nav__menu main-nav__menu--showed">
+        <button class="main-nav__close">
+          <img src="img/close.svg" alt="Крестик">
+        </button>
+        <ul class="main-nav__list">
+          <li class="main-nav__item">
             <a>Главная</a>
           </li>
-          <li class="main-nav__item"> 
+          <li class="main-nav__item">
             <a href="#">Магазин</a>
           </li>
-          <li class="main-nav__item"> 
+          <li class="main-nav__item">
             <a href="#">Контакты</a>
           </li>
         </ul>
-
-        <div class="main-nav__button">  
-          <button class="main-nav__find">  
-            <img src="img/find.svg" alt="Лупа">
-          </button>
-          <button class="main-nav__shop">  
-            <img src="img/shop.svg" alt="Корзина">
-          </button>
-          <button class="main-nav__burger">  
-            <img src="img/burger.svg" alt="Бургер">
-          </button> 
+        <div class="main-nav__contacts">  
+          <p class="main-nav__description">Следи за нами<br>
+            в социальных сетях:</p>
+          <ul class="main-nav__social social"> 
+            <li class="social__item"> 
+              <a href="#"><img src="img/tg.svg" alt="TG" class="social__tg"></a>
+            </li>
+            <li class="social__item"> 
+              <a href="#"><img src="img/VK.svg" alt="VK" class="social__vk"></a>
+            </li>
+          </ul>
         </div>
+      </nav>
+      <div class="main-nav__buttons">
+        <button class="main-nav__find">
+          <img src="img/find.svg" alt="Лупа">
+        </button>
+        <button class="main-nav__shop">
+          <img src="img/shop.svg" alt="Корзина">
+          <span class="main-nav__counter">0</span>
+        </button>
+        <button class="main-nav__burger">
+          <img src="img/burger.svg" alt="Бургер">
+        </button>
       </div>
-    </nav>
-  </body>
+    </div>
+  </header>
+</body>
+
 </html>
