@@ -1,0 +1,331 @@
+.hero{
+<<<<<<< Updated upstream
+    &__container{
+        @media (min-width:768px) and (max-width:1727px) {
+            max-width: 1727px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+        
+        @media (min-width:1728px) {
+            display: flex;
+            max-width: 1728px;
+            margin: 0 auto; 
+            position: relative; 
+=======
+    padding: 180px 0px;
+
+    &__container{
+        max-width: 1728px;
+        margin: 0 auto;
+        @media (min-width:1728px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+>>>>>>> Stashed changes
+        }
+    }
+
+    &__description{
+<<<<<<< Updated upstream
+        position: relative;
+        margin: 0 auto;
+        right: -10px;
+        @media (min-width:768px) and (max-width:1727px) {
+            margin: 0 auto;
+            position: relative;
+            right: 85px;
+        }
+
+        @media (min-width:1728px) {
+            margin-right: 56px;
+            width: 590px;
+            margin-left: 84px;
+            padding-bottom: 202px;
+            padding-top: 142px;
+=======
+        margin-left: 84px;
+        padding-right: 56px;
+        @media (min-width:1728px) {
+            width: 590px;
+>>>>>>> Stashed changes
+        }
+    }
+
+    &__title{
+<<<<<<< Updated upstream
+        font-weight: 700;
+        font-size: 75px;
+        line-height: 84px;
+        color: #000000;
+
+        @media (min-width:1728px) {
+            margin-bottom: 78px;
+        }
+
+        span:nth-child(1){
+            @media (max-width:767px) {
+                display: block;
+                padding-bottom: 10px;
+                font-size: 24px;
+                line-height: 26.88px;
+            }
+            @media (min-width:768px) and (max-width:1727px) {
+                display: block;
+                padding-bottom: 18px;
+                font-size: 48px;
+                line-height: 53.76px;
+            }
+        }
+        span:nth-child(2){
+            @media (max-width:767px) {
+                display: block;
+                padding-bottom: 5px;
+                font-size: 36px;
+                line-height: 40.32px;
+            }
+            @media (min-width:768px) and (max-width:1727px) {
+                display: block;
+                padding-bottom: 18px;
+                font-size: 96px;
+                line-height: 107.52px;
+            }
+        }
+
+        span:nth-child(3){
+            @media (max-width:767px) {
+                display: block;
+                font-size: 62px;
+                line-height:69.44px;
+            }
+            @media (min-width:768px) and (max-width:1727px) {
+                display: block;
+                font-size: 62px;
+                line-height: 69.44px;
+            }
+=======
+        margin-bottom: 78px;
+        @media (min-width:1728px) {
+            font-weight: 700;
+            font-size: 75px;
+            line-height: 84px;
+            color: #000000;
+>>>>>>> Stashed changes
+        }
+    }
+
+    &__text{
+<<<<<<< Updated upstream
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 43.12px;
+        color: #000000BF;
+
+        @media (max-width:767px){
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 23.1px;
+            width: 292px;
+            margin-top: 20px;
+        }
+        @media (min-width:768px) and (max-width:1727px) {
+            width: 387px;
+            font-size: 20px;
+            line-height: 30.8px;
+            position: absolute;
+            top: 205px;
+            left: 290px;
+            right: 0;
+            bottom: 0;
+=======
+        margin-bottom: 78px;
+        @media (min-width:1728px) {
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 43.12px;
+            color: #000000BF;
+>>>>>>> Stashed changes
+        }
+    }
+
+    &__button{
+<<<<<<< Updated upstream
+        width: 300px;
+        height: 55px;
+        margin: 0 auto;
+        display: block;
+
+        @media (max-width:767px) {
+            margin-top: 22px;
+            margin-bottom: 54px;
+        }
+        @media (min-width:768px) and (max-width:1727px) {
+            width: 458px;
+            height: 87px;
+            margin-top: 72px;
+            margin-bottom: 72px;
+        }
+        @media (min-width:1728px) {
+            width: 312px;
+            height: 87px;
+            position: absolute;
+            top: 640px;
+            left: 96px;
+        }
+    }
+
+    &__product{
+        display: flex;
+        flex-direction: column;
+        background: 
+            url('../../img/ultimate.svg'),
+            linear-gradient(90deg, #E4E4E4 0%, #FAFAFA 100%);
+        background-repeat: no-repeat, no-repeat;
+        background-size: 100% auto;
+        text-align: center;
+        padding-bottom: 35px;
+        margin-left: -10px;
+        margin-right: -10px;
+
+        @media (min-width:1728px) {
+            background: transparent;
+            margin: 0 auto;
+            padding-bottom: 132px;
+            &::before{
+                position: absolute;
+                bottom: 0;
+                top: -215px;
+                left: 43%;
+                width: calc(50vw + 7%);
+                background: 
+                url('../../img/ultimate-vertical.svg'),
+                linear-gradient(90deg, #E4E4E4 0%, #FAFAFA 100%);
+                content: '';
+                background-repeat: no-repeat,no-repeat;
+                background-position:  -1% 92%;
+                z-index: 1;
+
+            }
+        }
+    }
+
+    &__sneakers{
+        margin: 0 auto;
+        position: relative;
+        z-index: 102;
+        padding-top: 20px;
+
+        @media (min-width:1728px) {
+            padding-top: 110px;
+        }
+
+        img{
+            width: 296px;
+            height: 179px;
+        }
+        @media (min-width:768px) and (max-width:1727px) {
+            padding-top: 49px;
+            img{
+                width: 504px;
+                height: 305px;
+            }
+        }
+
+        @media (min-width:1728px) {
+            img{
+=======
+        @media (min-width:1728px) {
+            width: 312px;
+            height: 87px;
+        }
+    }
+
+
+    &__product{
+        @media (min-width:1728px) {
+            margin: 0 109px;
+        };
+    }
+
+
+
+    &__sneakers{
+        img{
+            width: 296px;
+            height: 179px;
+            @media (min-width:768px) and (max-width:1727px) {
+                width: 504px;
+                height: 305px;
+            }
+            @media (min-width:1728px) {
+>>>>>>> Stashed changes
+                width: 783px;
+                height: 474px;
+            }
+        }
+    }
+
+    &__name{
+<<<<<<< Updated upstream
+=======
+        margin: 0;
+        text-align: center;
+>>>>>>> Stashed changes
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 21.82px;
+        color: #000000;
+<<<<<<< Updated upstream
+        text-align: center;
+        position: relative;
+        z-index: 102;
+        @media (max-width:1727px) {
+            padding-top: 56px;
+            padding-bottom: 13px;
+        }
+        @media (min-width:1728px) {
+            font-size: 38px;
+            line-height: 34.55px;
+            padding-top: 117px;
+            padding-bottom: 15px;
+=======
+        @media (min-width:768px) {
+            font-size: 38px;
+            line-height: 34.55px;
+            margin-top: 117px;
+>>>>>>> Stashed changes
+        }
+    }
+
+    &__price{
+<<<<<<< Updated upstream
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 29.1px;
+        color: #00000080;
+        margin: 0 auto;
+        position: relative;
+        z-index: 102;
+        @media (max-width:767px) {
+            font-size: 20px;
+            line-height: 18.19px;
+        }
+=======
+        margin: 0;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 18.19px;
+        text-align: center;
+        color: #00000080;
+
+        @media (min-width:768px) {
+            font-size: 32px;
+            line-height: 29.1px;
+            padding-top: 15px;
+        }
+
+        
+>>>>>>> Stashed changes
+    }
+}
