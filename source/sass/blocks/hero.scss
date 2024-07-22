@@ -19,6 +19,7 @@
         position: relative;
         margin: 0 auto;
         right: -10px;
+
         @media (min-width:768px) and (max-width:1727px) {
             margin: 0 auto;
             position: relative;
@@ -127,6 +128,9 @@
             height: 87px;
             margin-top: 72px;
             margin-bottom: 72px;
+            font-size: 20px;
+            line-height: 30.8px;
+            font-weight: 600;
         }
         @media (min-width:1728px) {
             width: 312px;
@@ -147,8 +151,8 @@
         background-size: 100% auto;
         text-align: center;
         padding-bottom: 35px;
-        margin-left: -10px;
-        margin-right: -10px;
+        margin-left: -25px;
+        margin-right: -25px;
 
         @media (min-width:1728px) {
             background: transparent;
@@ -158,16 +162,15 @@
                 position: absolute;
                 bottom: 0;
                 top: -215px;
-                left: 33%;
-                width: calc(43vw + 7%);
+                left: 45%;
+                width: calc(50vw + 7%);
                 background: 
                 url('../../img/ultimate-vertical.svg'),
                 linear-gradient(90deg, #E4E4E4 0%, #FAFAFA 100%);
                 content: '';
                 background-repeat: no-repeat,no-repeat;
-                background-position:  -1% 92%;
+                background-position: -1% 92%;
                 z-index: 1;
-
             }
         }
     }
@@ -193,6 +196,13 @@
                 height: 305px;
             }
         }
+
+        @media (min-width:1728px) {
+            img{
+                width: 783px;
+                height: 474px;
+            }
+        }
     }
 
     &__name{
@@ -214,11 +224,6 @@
             line-height: 34.55px;
             padding-top: 117px;
             padding-bottom: 15px;
-    }
-    @media (min-width:768px) {
-        font-size: 38px;
-        line-height: 34.55px;
-        margin-top: 117px;
     }
 
     }

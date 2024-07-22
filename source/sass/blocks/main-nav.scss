@@ -26,29 +26,14 @@
 
     &__menu{
         display: none;
-        @media (max-width:767px) {
-            position: absolute;
-            top: 0;
-            right: 0;
-            min-width: 183px;
-            max-width: 400px;
-            width: 50%;
-            height: 100vh;
-            background-color: #EBEBEB;
-            z-index: 1000;
-            display: flex;
-            box-shadow: 0px 2.32px 1.97px 0px #00000006,
-            0px 5.39px 4.58px 0px #00000009,
-            0px 9.68px 8.22px 0px #0000000B,
-            0px 16.06px 13.65px 0px #0000000C,
-            0px 26.45px 22.49px 0px #0000000E,
-            0px 46.23px 39.3px 0px #00000011,
-            0px 100px 85px 0px #00000017;
-        }
-
-        @media (min-width:768px) {
+        @media (min-width:768px) and (max-width:1727px) {
             display: block;
             margin-left: auto;
+        }
+
+        @media (min-width:1728px) {
+            display: block;
+            margin-left: 363px;
         }
 
         @media (max-width:767px) {
@@ -91,7 +76,6 @@
 
     &__list {
         @include clear-list;
-
         display: none;
         @media (min-width:768px) {
             display: flex;
@@ -99,7 +83,7 @@
         }
         
         @media (min-width:1728px) {
-            margin-left: 363px;
+            margin-left: auto;
         }
     }
 
@@ -242,12 +226,8 @@
         @include clear-button;
         display: none;
         position: absolute;
-        right: 16px;
+        right: 22px;
         top: 20px;
-
-        @media (min-width:384px) {
-            top: 25px;
-        }
 
         img{
             width: 12px;
