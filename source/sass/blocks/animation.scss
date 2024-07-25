@@ -1,0 +1,84 @@
+
+.animation{
+    overflow-x: hidden;
+    background-color: #000000;
+    margin-left: -25px;
+    margin-right: -25px;
+
+    &__container{
+        width: 1728px;
+        height: 63px;
+        display: flex;
+        margin: 0 auto;
+
+        @media (min-width:768px) and (max-width:1727px) {
+            height: 131px;
+        }
+
+        @media (min-width:1728px) {
+            height: 162px;
+        }
+    }
+
+    &__widgets{
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+        gap: 41px;
+
+        @media (max-width:1727px) {
+            @keyframes score-scroll {   
+                0% {     
+                    transform: translateX(-100%);   
+                }   
+                100% {
+                    transform: translateX(100%);
+                }
+            }
+            animation: score-scroll 4s linear infinite;
+        }
+
+        @media (min-width:768px){
+            gap: 200px;
+        }
+    }
+
+    &__ozon{
+        @media (max-width:768px) {
+            img{
+                width: 73px;
+                height: 16px;
+            }
+        }
+        
+    }
+
+    &__wb{
+        @media (max-width:768px) {
+            img{
+                width: 107px;
+                height: 16px;
+            }
+        }
+    }
+
+    &__sber{
+        @media (max-width:768px) {
+            img{
+                width: 120px;
+                height: 16px;
+            }
+        }
+    }
+
+    &__yandex{
+        @media (max-width:768px) {
+            img{
+                width: 120px;
+                height: 16px;
+            }
+        }
+    }
+}
+
