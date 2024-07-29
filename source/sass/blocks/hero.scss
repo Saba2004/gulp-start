@@ -1,5 +1,10 @@
 .hero{
-    overflow-x: hidden;
+    overflow-x: hidden ;
+    @media (max-width:1727px) {
+        margin-right: -27px;
+        margin-left: -27px;
+    }
+
     &__container{
         @media (min-width:768px) and (max-width:1727px) {
             max-width: 1727px;
@@ -12,7 +17,8 @@
             display: flex;
             max-width: 1728px;
             margin: 0 auto; 
-            position: relative; 
+            position: relative;
+            flex-direction: row;
         }
     }
 
@@ -20,6 +26,10 @@
         position: relative;
         margin: 0 auto;
         right: -10px;
+
+        @media (max-width:767px) {
+            right: -35px;
+        }
 
         @media (min-width:768px) and (max-width:1727px) {
             margin: 0 auto;
@@ -119,7 +129,6 @@
         height: 55px;
         margin: 0 auto;
         display: block;
-
         @media (max-width:767px) {
             margin-top: 22px;
             margin-bottom: 54px;
@@ -152,9 +161,6 @@
         background-size: 100% auto;
         text-align: center;
         padding-bottom: 35px;
-        margin-left: -25px;
-        margin-right: -25px;
-
         @media (min-width:1728px) {
             background: transparent;
             margin: 0 auto;
@@ -171,7 +177,7 @@
                 content: '';
                 background-repeat: no-repeat,no-repeat;
                 background-position: -1% 92%;
-                z-index: 1;
+                z-index: 100;
             }
         }
     }
