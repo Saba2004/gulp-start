@@ -1,0 +1,91 @@
+.reviews{
+
+    &__container{
+        max-width: 1728px;
+        margin: 0 auto;
+    }
+
+    &__title{
+        font-weight: 500;
+        font-size: 45px;
+        line-height: 62.15px;
+        color: #000000;
+        text-align: center;
+        transform: translateX(28px);
+
+        &::before{
+            content: '';
+            width: 41px;
+            height: 3px;
+            background-color: #000000;
+            display: inline-block;
+            transform: translateY(-13px);
+            margin-right: 22px;
+        }
+        &::after{
+            content: '';
+            width: 41px;
+            height: 3px;
+            background: #000;
+            display: inline-block;
+            transform: translateY(-13px);
+            margin-left: 22px;
+        }
+    }
+
+    &__cards{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        gap: 68px;
+        transform: translateX(30px);
+        @media (max-width:1727px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #DEDEDE;
+        background-color: #F3F3F3;
+        border-radius: 25px;
+        padding: 78px 70px;
+    }
+
+    &__name{
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 38.67px;
+        color: #000000;
+    }
+
+    &__text{
+        font-size: 18px;
+        line-height: 24.86px;
+        color: #000000BF;
+        width: 422px;
+    }
+
+    &__info{
+        margin-left: 54px;
+    }
+
+    &__rate1{
+        background-image: url('../img/star.png');
+        max-width: 85px;
+        height: 19px;
+        background-repeat: repeat-x;
+    }
+
+
+    &__rate2{
+        background-image: url('../img/star.png');
+        max-width: 66px;
+        height: 19px;
+        background-repeat: repeat-x;
+    }
+    
+}

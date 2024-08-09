@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ваш проект</title>
   <link rel="stylesheet" href="css/style.min.css">
+  <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -15,7 +16,7 @@
       <a href="index.html" class="main-nav__logo">
         <img src="img/logo.svg" alt="Логотип компании SLICK">
       </a>
-      <nav class="main-nav__menu main-nav__menu--showed">
+      <nav class="main-nav__menu">
         <button class="main-nav__close">
           <img src="img/close.svg" alt="Крестик">
         </button>
@@ -90,9 +91,9 @@
     </div>
   </main>
 
-  <section class="animation"> 
-    <div class="animation__container">  
-      <div class="animation__widgets">  
+  <section class="animation">
+    <div class="animation__container">
+      <div class="animation__widgets">
         <div class="animation__ozon">
           <img src="img/ozon.svg" alt="ozon">
         </div>
@@ -109,58 +110,58 @@
     </div>
   </section>
 
-  <section class="best-selling">  
-    <div class="best-selling__container"> 
+  <section class="best-selling">
+    <div class="best-selling__container">
       <h2 class="best-selling__title">Best Selling</h2>
-      <div class="best-selling__buttons"> 
+      <div class="best-selling__buttons">
         <button class="best-selling__men button">Мужские</button>
         <button class="best-selling__women">Женские</button>
       </div>
-      <div class="best-selling__catalog"> 
+      <div class="best-selling__catalog">
         <div class="best-selling__item1">
           <img src="img/catalog-selling1.png" alt="кроссовки1" class="best-selling__sneakers1">
-            <h3 class="best-selling__name1">Slick formal sneaker shoe</h3>
-            <div class="best-selling__description">  
-              <div class="best-selling__prices">  
-                <p class="best-selling__price-new">2 999 ₽</p>
-                <p class="best-selling__price-old">4999 ₽</p>
-              </div>
-              <div class="best-selling__button1"></div>
+          <h3 class="best-selling__name1">Slick formal sneaker shoe</h3>
+          <div class="best-selling__description">
+            <div class="best-selling__prices">
+              <p class="best-selling__price-new">2 999 ₽</p>
+              <p class="best-selling__price-old">4999 ₽</p>
             </div>
-            <div class="best-selling__hot"> 
-              <img src="img/hot.svg" alt="hot">
-            </div>
-            <div class="best-selling__text">  
-              <img src="img/hot-text.svg" alt="Hot!">
-            </div>
+            <div class="best-selling__button1 btn-modal" data-modal-btn="modal_product"></div>
+          </div>
+          <div class="best-selling__hot">
+            <img src="img/hot.svg" alt="hot">
+          </div>
+          <div class="best-selling__text">
+            <img src="img/hot-text.svg" alt="Hot!">
+          </div>
         </div>
         <div class="best-selling__item">
-          <img src="img/catalog-selling2.png" alt="кроссовки2" class="best-selling__sneakers2"> 
-            <h3 class="best-selling__name">Slick sneaker shoe</h3>
-            <div class="best-selling__description"> 
-              <div class="best-selling__prices">  
-                <p class="best-selling__price">2 999 ₽</p>
-                <p class="best-selling__sale">3999 ₽</p>
-              </div>
-              <div class="best-selling__button"></div>
+          <img src="img/catalog-selling2.png" alt="кроссовки2" class="best-selling__sneakers2">
+          <h3 class="best-selling__name">Slick sneaker shoe</h3>
+          <div class="best-selling__description">
+            <div class="best-selling__prices">
+              <p class="best-selling__price">2 999 ₽</p>
+              <p class="best-selling__sale">3999 ₽</p>
             </div>
-            <div class="best-selling__new"> 
-              <img src="img/new.svg" alt="new">
-            </div>
-            <div class="best-selling__new-text">  
-              <img src="img/new-text.svg" alt="new">
-            </div>
+            <div class="best-selling__button" data-modal-btn="modal_product"></div>
+          </div>
+          <div class="best-selling__new">
+            <img src="img/new.svg" alt="new">
+          </div>
+          <div class="best-selling__new-text">
+            <img src="img/new-text.svg" alt="new">
+          </div>
         </div>
         <div class="best-selling__item">
           <img src="img/catalog-selling3.png" alt="кроссовки3" class="best-selling__sneakers3">
-            <h3 class="best-selling__name">Slick canvas shoe</h3>
-            <div class="best-selling__description">  
-              <div class="best-selling__prices">  
-                <p class="best-selling__price">2 999 ₽</p>
-                <p class="best-selling__sale">3999 ₽</p>
-              </div>
-              <div class="best-selling__button"></div>
+          <h3 class="best-selling__name">Slick canvas shoe</h3>
+          <div class="best-selling__description">
+            <div class="best-selling__prices">
+              <p class="best-selling__price">2 999 ₽</p>
+              <p class="best-selling__sale">3999 ₽</p>
             </div>
+            <div class="best-selling__button" data-modal-btn="modal_product"></div>
+          </div>
         </div>
       </div>
       <button class="best-selling__show-all button">
@@ -168,5 +169,47 @@
       </button>
     </div>
   </section>
+
+  <section class="reviews">
+    <div class="reviews__container">
+      <div class="reviews__title">Отзывы о кроссах</div>
+      <div class="reviews__cards">
+        <div class="reviews__item">
+          <div class="reviews__image">
+            <img src="img/woman.png" alt="woman">
+          </div>
+          <div class="reviews__info">
+            <div class="reviews__name">Ava Joshi</div>
+            <div class="reviews__rate1"></div>
+            <div class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+            </div>
+          </div>
+        </div>
+        <div class="reviews__item">
+          <div class="reviews__image">
+            <img src="img/man.png" alt="man">
+          </div>
+          <div class="reviews__info">
+            <div class="reviews__name">Otis bisnoy</div>
+            <div class="reviews__rate2"></div>
+            <div class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-modal-product="modal_product" class="modal">
+    <div class="modal__content">
+      <div class="modal__inner">
+        <div class="modal__title">Товар успешно добавлен в корзину</div>
+        <div class="modal__close"><img src="img/close.svg" alt="close"></div>
+        <button class="modal__button button">Продолжить Покупки</button>
+      </div>
+    </div>
+  </div>
 
 </html>

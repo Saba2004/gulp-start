@@ -27,20 +27,25 @@
         justify-content: space-between;
         gap: 41px;
 
-        @keyframes score-scroll {   
-            0% {     
-                transform: translateX(-100%);   
-            }   
-            100% {
-                transform: translateX(100%);
+        @media (max-width:1727px) {
+            @keyframes score-scroll {   
+                0% {     
+                    transform: translateX(-200%);   
+                }   
+                100% {
+                    transform: translateX(100%);
+                }
             }
+            animation: score-scroll 6s linear infinite;
         }
 
+        
 
-        animation: score-scroll 4s linear infinite;
 
+        
+        
         @media (min-width:768px){
-            gap: 200px;
+        gap: 200px;
         }
     }
 
