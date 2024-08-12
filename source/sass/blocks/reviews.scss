@@ -53,6 +53,14 @@
         background-color: #F3F3F3;
         border-radius: 25px;
         padding: 78px 70px;
+        @media (max-width:767px) {
+            max-width: 300px;
+            align-items: flex-start;
+            padding: 30px 40px;
+        }
+        @media (min-width: 728px) and (max-width:1727px) {
+            max-width: 728px;
+        }
     }
 
     &__name{
@@ -60,6 +68,7 @@
         font-size: 28px;
         line-height: 38.67px;
         color: #000000;
+
     }
 
     &__text{
@@ -67,10 +76,23 @@
         line-height: 24.86px;
         color: #000000BF;
         width: 422px;
+
+        @media (max-width:767px) {
+            max-width: 250px;
+            padding-top: 46px;
+            text-align: left;
+            transform: translateX(-70px);
+            
+        }
     }
 
     &__info{
         margin-left: 54px;
+
+        @media (max-width:767px) {
+            margin-left: 19px;
+        }
+        
     }
 
     &__rate1{
@@ -78,6 +100,7 @@
         max-width: 85px;
         height: 19px;
         background-repeat: repeat-x;
+        
     }
 
 
@@ -86,6 +109,19 @@
         max-width: 66px;
         height: 19px;
         background-repeat: repeat-x;
+        
     }
     
+
+    &__image{
+        img{
+            @media (max-width:727px) {
+                width: 54px;
+                height: 75px;
+            }
+        }
+        @media (max-width:727px) {
+            margin-left: 55px;
+        }
+    }
 }
