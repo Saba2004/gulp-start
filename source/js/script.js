@@ -28,7 +28,6 @@ btnModal.forEach((button) => {
         close.addEventListener('click',function(){
             modal.style.display = "none"
         })
-    })
-    
+    })   
 })
 
