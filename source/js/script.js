@@ -7,7 +7,6 @@ const closeMenu = () => {
     buttonClose.removeEventListener('click',closeMenu)
 }
 
-
 buttonOpen.addEventListener('click',() => {
     menu.classList.add('main-nav__menu--showed')
     buttonClose.addEventListener('click',closeMenu)
