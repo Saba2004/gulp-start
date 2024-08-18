@@ -1,32 +1,52 @@
-const menu = document.querySelector('.main-nav__menu')
-const buttonClose = document.querySelector('.main-nav__close')
-const buttonOpen = document.querySelector('.main-nav__burger')
+const menu = document.querySelector('.main-nav__menu');
+const buttonClose = document.querySelector('.main-nav__close');
+const buttonOpen = document.querySelector('.main-nav__burger');
 
 const closeMenu = () => {
-    menu.classList.remove('main-nav__menu--showed')
-    buttonClose.removeEventListener('click',closeMenu)
-}
+    menu.classList.remove('main-nav__menu--showed');
+    buttonClose.removeEventListener('click',closeMenu);
+};
 
-buttonOpen.addEventListener('click',() => {
-    menu.classList.add('main-nav__menu--showed')
-    buttonClose.addEventListener('click',closeMenu)
-})
 
-const btnModal = document.querySelectorAll('*[data-modal-btn]')
+if(buttonOpen && menu && buttonClose){
+    buttonOpen.addEventListener('click',() => {
+        menu.classList.add('main-nav__menu--showed');
+        buttonClose.addEventListener('click',closeMenu);
+    });
+};
 
-btnModal.forEach((button) => {
-    button.addEventListener('click',function(){
-        let name = button.getAttribute('data-modal-btn')
-        let modal = document.querySelector("[data-modal-product='"+name+"']")
-        modal.style.display = "block"
-        let close = modal.querySelector('.modal__close')
-        let butContinue = document.querySelector('.modal__button')
-        butContinue.addEventListener('click',function(){
-            modal.style.display = "none"
-        })
-        close.addEventListener('click',function(){
-            modal.style.display = "none"
-        })
-    })   
-})
+const buttonsModal = document.querySelectorAll('*[data-modal-btn]');
+
+const CloseModal = (modal,btnClose) => {
+    if(!btnClose){
+        return;
+    }
+    btnClose.addEventListener('click',() => {
+        modal.classList.remove('modal--showed');
+    })
+};
+
+if(buttonsModal.length){
+    buttonsModal.forEach((button) => {
+        const name = button.getAttribute('data-modal-btn');
+        const modal = document.querySelector(`[data-modal-product="${name}"]`);
+
+        if(!modal){
+            return;
+        };
+
+        button.addEventListener('click',function(){
+            const close = modal.querySelector('.modal__close');
+            const buttonContinue = modal.querySelector('.modal__button');
+
+            modal.classList.add('modal--showed');
+
+
+            CloseModal(modal,buttonContinue)
+            CloseModal(modal,close)
+
+        });  
+    });
+};
+
 
