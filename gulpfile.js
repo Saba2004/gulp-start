@@ -31,7 +31,7 @@ const html = () => {
 };
 
 const scripts = () => {
-  return gulp.src('source/js/script.js')
+  return gulp.src('source/js/**/*.js')
   .pipe(gulp.dest('build/js'))
   .pipe(browser.stream());
 };
@@ -101,7 +101,7 @@ const clean = async () => {
 
 const watcher = () => {
   gulp.watch('source/sass/**/*.scss', gulp.series(styles));
-  gulp.watch('source/js/script.js', gulp.series(scripts));
+  gulp.watch('source/js/**/*.js', gulp.series(scripts));
   gulp.watch('source/*.html', gulp.series(html, reload));
 }
 
@@ -111,7 +111,7 @@ const server = (done) => {
     baseDir: 'build'
   },
     cors: true,
-    notify: false,
+    notify: false, 
     ui: false,
   });
   done();
