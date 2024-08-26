@@ -17,7 +17,7 @@
         position: relative;
 
         @media (max-width:767px) {
-            left: 25px;
+            left: 5px;
         }
 
         @media (min-width:768px) and (max-width:1728px) {
@@ -50,7 +50,7 @@
             grid-row: 1 / span 3;
             top: -35px;
             width: 1042px;
-            right: -90px;
+            right: -70px;
         }
 
         img{
@@ -93,6 +93,8 @@
                 height: 373px;
             }
         }
+
+
     }
 
     &__title{
@@ -432,7 +434,7 @@
         margin-top: 85px;
     }
 
-    &__hot{
+    &__hot-img{
         position: absolute;
         top: 104px;
         left: -10px;
@@ -451,41 +453,46 @@
         }
     }
 
-    &__text{
-        position: absolute;
-        top: 117px;
-        left: 10px;
-        img{
-            width: 65px;
-            height: 27px;
-        }
-
-        @media (max-width:767px) {
-            top: 58px;
-            left: 5px;
-            img{
-                width: 30px;
-                height: 12px;
+    &--hot{
+        &::after {
+            background-image: url("../img/hot.svg");
+            width: 120px;
+            height: 65px;
+            content: "Hot!";
+            position: absolute;
+            font-size: 36px;
+            line-height: 60px;
+            text-align: center;
+            background-size: cover;
+            color: #fff;
+            top: 10%;
+            left: -8px;
+            filter: drop-shadow(8px 7px 16px #00000015);
+            @media (max-width:767px) {
+                width: 59px;
+                height: 32px;
+                font-size: 18px;
+                line-height: 30px;
+                left: -5px;
             }
+    }
+}
+
+    &--new{
+        &::after{
+            background-image: url("../img/new.svg");    
+            width: 69px;
+            height: 52px;
+            content: "New";
+            position: absolute;
+            font-size: 16px;
+            line-height: 35px;
+            text-align: center;
+            background-size: cover;
+            color: #fff;
+            top: 10%;
+            left: -10px;
         }
     }
 
-    &__new{
-        position: absolute;
-        top: 51px;
-        left: -7px;
-        img{
-            width: 59px;
-            height: 32px;
-        }
-    }
-
-    &__new-text{
-        position: absolute;
-        top: 57px;
-        img{
-            width: 30px;
-            height: 12px;
-        }
-    }
 }

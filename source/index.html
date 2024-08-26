@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ваш проект</title>
   <link rel="stylesheet" href="css/style.min.css">
-  <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -118,8 +117,27 @@
           <button class="best-selling__men button">Мужские</button>
           <button class="best-selling__women">Женские</button>
         </div>
-        <div class="best-selling__catalog">
-          <div class="best-selling__item1">
+
+ 
+        <template id="best-selling-product">
+          <div class="best-selling__item">  
+            <img src="img/catalog-selling1.png" alt="кроссовки1" class="best-selling__sneakers">
+            <h3 class="best-selling__name">Slick formal sneaker shoe</h3>
+            <div class="best-selling__description">
+              <div class="best-selling__prices">
+                <p class="best-selling__price-new">2 999 ₽</p>
+                <p class="best-selling__price-old">4999 ₽</p>
+              </div>
+              <div class="best-selling__button1" data-modal-btn="modal_product"></div>
+            </div>
+          </div>
+        </template>
+        <ul class="best-selling__catalog"></ul>
+
+
+
+        <!-- <div class="best-selling__catalog">
+          <div class="best-selling__item1 best-selling__item--big">
             <img src="img/catalog-selling1.png" alt="кроссовки1" class="best-selling__sneakers1">
             <h3 class="best-selling__name1">Slick formal sneaker shoe</h3>
             <div class="best-selling__description">
@@ -127,7 +145,7 @@
                 <p class="best-selling__price-new">2 999 ₽</p>
                 <p class="best-selling__price-old">4999 ₽</p>
               </div>
-              <div class="best-selling__button1 btn-modal" data-modal-btn="modal_product"></div>
+              <div class="best-selling__button1" data-modal-btn="modal_product"></div>
             </div>
             <div class="best-selling__hot">
               <img src="img/hot.svg" alt="hot">
@@ -164,7 +182,11 @@
               <div class="best-selling__button" data-modal-btn="modal_product"></div>
             </div>
           </div>
-        </div>
+        </div> -->
+
+        
+
+        <div class="best-selling__catalog"></div>
         <button class="best-selling__show-all button">
           Показать всё
         </button>
@@ -213,5 +235,7 @@
       </div>
     </div>
   </main>
-
+  <script src="js/main.js" defer type="module"></script>
+  <script src="js/script.js" defer></script>
+</body>
 </html>
