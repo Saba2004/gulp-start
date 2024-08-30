@@ -1,3 +1,5 @@
+import { OpenModal } from './script.js';
+
 export default (products,template,target,catalogList,isTargetList = false, templateClass = '') => {
     const fragment = document.createDocumentFragment();
 
@@ -15,17 +17,15 @@ export default (products,template,target,catalogList,isTargetList = false, templ
     }
 
     products.forEach(product => {
-        const {id, name, image, price_new, price_old, status, size} = product 
+        const {id, name, image, price, oldPrice, status, isBig} = product 
         const itemEl = productEl.cloneNode(true);
         const imageEl = itemEl.querySelector(`.best-selling__sneakers`);
         const nameEl = itemEl.querySelector(`.best-selling__name`);
         const priceElNew = itemEl.querySelector('.best-selling__price-new');
         const priceElOld = itemEl.querySelector('.best-selling__price-old');
-        const ButtonEl = itemEl.querySelector('.best-selling__button1');
+        const ButtonEl = itemEl.querySelector('.best-selling__button1');        
 
-        
-
-        if(size?.length && size === 'big'){
+        if(isBig){
             itemEl.classList.remove('best-selling__item');
             itemEl.classList.add('best-selling__item1');
             nameEl.classList.remove('best-selling__name');
@@ -45,13 +45,17 @@ export default (products,template,target,catalogList,isTargetList = false, templ
 
         imageEl.src = image;
         nameEl.textContent = name;
-        priceElNew.textContent = price_new;
-        priceElOld.textContent = price_old;
+        priceElNew.textContent = price;
+        priceElOld.textContent = oldPrice;
     
         fragment.appendChild(itemEl);
     });
 
+    
+    
+    
     target.innerHTML = '';
     target.append(fragment);
-
+    const ButtonsElement = document.querySelectorAll('*[data-modal-btn]');
+    OpenModal(ButtonsElement)
 }

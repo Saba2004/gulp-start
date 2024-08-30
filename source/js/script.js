@@ -26,7 +26,8 @@ const CloseModal = (modal,btnClose) => {
     })
 };
 
-if(buttonsModal.length){
+export const OpenModal = (buttonsModal) => {
+    if(buttonsModal.length){
     buttonsModal.forEach((button) => {
         const name = button.getAttribute('data-modal-btn');
         const modal = document.querySelector(`[data-modal-product="${name}"]`);
@@ -44,9 +45,10 @@ if(buttonsModal.length){
 
             CloseModal(modal,buttonContinue)
             CloseModal(modal,close)
-
         });  
     });
+};   
 };
+
 
 
