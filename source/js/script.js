@@ -26,29 +26,23 @@ const CloseModal = (modal,btnClose) => {
     })
 };
 
-export const OpenModal = (buttonsModal) => {
-    if(buttonsModal.length){
-    buttonsModal.forEach((button) => {
-        const name = button.getAttribute('data-modal-btn');
-        const modal = document.querySelector(`[data-modal-product="${name}"]`);
+export const OpenModal = (button) => {
+    const name = button.getAttribute('data-modal-btn');
+    const modal = document.querySelector(`[data-modal-product="${name}"]`);
 
-        if(!modal){
-            return;
-        };
+    if(!modal){
+        return;
+    };
 
-        button.addEventListener('click',function(){
-            const close = modal.querySelector('.modal__close');
-            const buttonContinue = modal.querySelector('.modal__button');
+    const close = modal.querySelector('.modal__close');
+    const buttonContinue = modal.querySelector('.modal__button');
 
-            modal.classList.add('modal--showed');
+    modal.classList.add('modal--showed');
 
 
-            CloseModal(modal,buttonContinue)
-            CloseModal(modal,close)
-        });  
-    });
+    CloseModal(modal,buttonContinue)
+    CloseModal(modal,close)
 };   
-};
 
 
 

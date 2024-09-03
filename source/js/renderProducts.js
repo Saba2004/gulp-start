@@ -1,6 +1,6 @@
 import { OpenModal } from './script.js';
 
-export default (products,template,target,catalogList,isTargetList = false, templateClass = '') => {
+export default (products,template,target,isTargetList = false, templateClass = '') => {
     const fragment = document.createDocumentFragment();
 
     let productEl = template.querySelector('.best-selling__item');
@@ -23,7 +23,7 @@ export default (products,template,target,catalogList,isTargetList = false, templ
         const nameEl = itemEl.querySelector(`.best-selling__name`);
         const priceElNew = itemEl.querySelector('.best-selling__price-new');
         const priceElOld = itemEl.querySelector('.best-selling__price-old');
-        const ButtonEl = itemEl.querySelector('.best-selling__button1');        
+        const buttonEl = itemEl.querySelector('.best-selling__button1');        
 
         if(isBig){
             itemEl.classList.remove('best-selling__item');
@@ -35,13 +35,17 @@ export default (products,template,target,catalogList,isTargetList = false, templ
             priceElNew.classList.add('best-selling__price');
             priceElOld.classList.remove('best-selling__price-old');
             priceElOld.classList.add('best-selling__sale');
-            ButtonEl.classList.remove('best-selling__button1');
-            ButtonEl.classList.add('best-selling__button');
+            buttonEl.classList.remove('best-selling__button1');
+            buttonEl.classList.add('best-selling__button');
         }
 
         if(status?.length){
             itemEl.classList.add(`best-selling--${status}`);
         }
+
+        buttonEl.addEventListener('click', () => {
+            OpenModal(buttonEl)
+        })
 
         imageEl.src = image;
         nameEl.textContent = name;
@@ -51,11 +55,9 @@ export default (products,template,target,catalogList,isTargetList = false, templ
         fragment.appendChild(itemEl);
     });
 
-    
+
     
     
     target.innerHTML = '';
     target.append(fragment);
-    const ButtonsElement = document.querySelectorAll('*[data-modal-btn]');
-    OpenModal(ButtonsElement)
 }
