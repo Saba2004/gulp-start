@@ -15,15 +15,16 @@ if(buttonOpen && menu && buttonClose){
     });
 };
 
-const buttonsModal = document.querySelectorAll('*[data-modal-btn]');
+const CloseModal = (modal) => {
 
-const CloseModal = (modal,btnClose) => {
-    if(!btnClose){
-        return;
-    }
-    btnClose.addEventListener('click',() => {
-        modal.classList.remove('modal--showed');
-    })
+    const close = modal.querySelector('.modal__close-img');
+    const buttonContinue = modal.querySelector('.modal__button');
+    modal.addEventListener('click',(event) => { 
+        if(event.target === close || event.target === buttonContinue){
+            modal.classList.remove('modal--showed')
+        }
+    });
+
 };
 
 export const OpenModal = (button) => {
@@ -34,14 +35,9 @@ export const OpenModal = (button) => {
         return;
     };
 
-    const close = modal.querySelector('.modal__close');
-    const buttonContinue = modal.querySelector('.modal__button');
-
     modal.classList.add('modal--showed');
 
-
-    CloseModal(modal,buttonContinue)
-    CloseModal(modal,close)
+    CloseModal(modal);
 };   
 
 

@@ -1,4 +1,4 @@
-export default async (url) => {
+export const fetchParams =  async (url) => {
     const response = await fetch(url);
     if(response.ok){
         const data = response.json();
