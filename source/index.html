@@ -47,10 +47,36 @@
         <button class="main-nav__find">
           <img src="img/find.svg" alt="Лупа">
         </button>
-        <button class="main-nav__shop">
-          <img src="img/shop.svg" alt="Корзина">
-          <span class="main-nav__counter">0</span>
-        </button>
+        <div class="user-menu__cart"> 
+          <button class="main-nav__shop" data-modal-btn="cart">
+            <img src="img/shop.svg" alt="Корзина">
+            <span class="main-nav__counter">0</span>
+          </button>
+          <div class="modal" data-modal-product="cart"> 
+            <div class="shopping-cart">
+              <div class="modal__close"><img src="img/close.svg" alt="close" class="modal__close-img"></div>
+              <h2 class="shopping-cart__article">Корзина товаров</h2>
+              <template id="shopping-cart__product">
+                <li class="shopping-cart__item">
+                  <button class="shopping-cart__delete">Удалить</button> 
+                  <img src="" alt="" class="shopping-cart__image">
+                  <h3 class="shopping-cart__name">Running sport shoe</h3>
+                  <div class="shopping-cart__count">  
+                    <button class="shopping-cart__minus">-</button>
+                    <input type="text" class="shopping-cart__input">
+                    <button class="shopping-cart__plus">+</button>
+                  </div>
+                  <div class="shopping-cart__price">3999 ₽</div>
+                </li>
+              </template>
+              <ul class="shopping-cart__list"></ul>
+              <span class="shopping-cart__itogo">Итого:</span>
+              <span class="shopping-cart__amount"><span>0</span> шт.</span>
+              <span class="shopping-cart__total">0</span>
+              <button class="shopping-cart__order" id="order-button">Оформить заказ</button>
+            </div>
+          </div>
+        </div>
         <button class="main-nav__burger">
           <img src="img/burger.svg" alt="Бургер">
         </button>

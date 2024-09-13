@@ -1,4 +1,7 @@
-import { OpenModal } from './script.js';
+import { OpenModal, CloseModal } from './modals.js';
+import { renderCart } from './productCart.js';
+import './script.js';
+import { addToStorage } from './localstorage.js';
 
 export default (products,template,target,isTargetList = false, templateClass = '') => {
     const fragment = document.createDocumentFragment();
@@ -45,6 +48,8 @@ export default (products,template,target,isTargetList = false, templateClass = '
 
         buttonEl.addEventListener('click', () => {
             OpenModal(buttonEl)
+            addToStorage('cart', product);
+            renderCart()
         })
 
         imageEl.src = image;
