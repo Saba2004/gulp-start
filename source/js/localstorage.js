@@ -20,7 +20,6 @@ export const removeFromStorage = (storageName,productId, all = false) => {
         return;
     }
 
-    console.log(storageData)
 
 
     if(all === true){
