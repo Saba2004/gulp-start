@@ -1,9 +1,8 @@
 export const CloseModal = (modal) => {
-
-    const close = modal.querySelector('.modal__close-img');
+    const close = modal.querySelector('.modal__close-img img');
     const buttonContinue = modal.querySelector('.modal__button');
     modal.addEventListener('click',(event) => { 
-        if(event.target === close || event.target === buttonContinue){
+        if(event.target === close || event.target === buttonContinue || (event.target === modal)){
             modal.classList.remove('modal--showed')
         }
     });

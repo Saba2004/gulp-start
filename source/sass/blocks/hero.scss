@@ -1,8 +1,4 @@
 .hero{
-    @media (max-width:1727px) {
-        margin-right: -27px;
-        margin-left: -27px;
-    }
 
     &__container{
         @media (min-width:768px) and (max-width:1727px) {
@@ -22,26 +18,18 @@
     }
 
     &__description{
-        position: relative;
         margin: 0 auto;
-        right: -10px;
-
-        @media (max-width:767px) {
-            right: -35px;
+        padding-left: 24px;
+        @media (max-width:768px) {
+            flex-direction: column;
+            padding-left: 10px;
         }
-
-        @media (min-width:768px) and (max-width:1727px) {
-            margin: 0 auto;
-            position: relative;
-            right: 85px;
-        }
-
         @media (min-width:1728px) {
-            margin-right: 56px;
             width: 590px;
-            margin-left: 84px;
             padding-bottom: 202px;
             padding-top: 142px;
+            flex-direction: column;
+            padding-left: 0;
         }
     }
 
@@ -50,10 +38,10 @@
         font-size: 75px;
         line-height: 84px;
         color: #000000;
-
         @media (min-width:1728px) {
-            margin-bottom: 78px;
+            padding-bottom: 78px;
         }
+
 
         span:nth-child(1){
             @media (max-width:767px) {
@@ -91,7 +79,7 @@
                 line-height:69.44px;
             }
             @media (min-width:768px) and (max-width:1727px) {
-                display: block;
+                display: flex;
                 font-size: 62px;
                 line-height: 69.44px;
             }
@@ -103,6 +91,8 @@
         font-size: 28px;
         line-height: 43.12px;
         color: #000000BF;
+        align-self: flex-end;
+        display: block;
 
         @media (max-width:767px){
             font-weight: 400;
@@ -110,16 +100,17 @@
             line-height: 23.1px;
             width: 292px;
             margin-top: 20px;
+            align-self: start;
         }
         @media (min-width:768px) and (max-width:1727px) {
             width: 387px;
             font-size: 20px;
             line-height: 30.8px;
-            position: absolute;
-            top: 205px;
-            left: 290px;
-            right: 0;
-            bottom: 0;
+            margin-left: 96px;
+        }
+
+        @media (min-width:1728px) {
+            margin-top: 78px;
         }
     }
 
@@ -167,9 +158,9 @@
             &::before{
                 position: absolute;
                 bottom: 0;
-                top: -215px;
+                top: -215px;    
                 left: 46%;
-                width: calc(50vw + 6%);
+                width: calc(50vw + 4%);
                 background: 
                 url('../img/ultimate-vertical.svg'),
                 linear-gradient(90deg, #E4E4E4 0%, #FAFAFA 100%);

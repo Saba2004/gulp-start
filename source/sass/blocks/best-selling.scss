@@ -1,36 +1,27 @@
 .best-selling{
-    margin-left: -20px;
-    margin-right: -20px;
     padding-top: 124px;
     padding-bottom: 83px;
 
     &__container{
-        max-width: 1728px;
+        max-width: 1560px;
         margin: 0 auto;
     }
 
     &__catalog{
+        @include clear-list;
         display: grid;
-        justify-content: center;
-        align-items: center;
         grid-gap: 25px;
         position: relative;
-
-        @media (max-width:767px) {
-            left: 5px;
-        }
+        justify-content: center;
 
         @media (min-width:768px) and (max-width:1728px) {
             grid-gap: 40px;
         }
 
         @media (min-width:1728px) {
-            // grid-template-columns: 2fr 1fr;
             grid-column-gap: 29px;
             grid-row-gap: 69px;
-            justify-content: center;
-            align-items: center;
-            right: 40px;
+            grid-template-columns: 1fr 1fr 1fr;
         }
         
 
@@ -40,7 +31,6 @@
         position: relative;
         border: 2px solid #DEDEDE;
         border-radius: 25px;
-        padding-top: 28px;
         img{
             display: block;
             margin: 0 auto;
@@ -66,7 +56,6 @@
         text-align: center;
         margin-bottom: 62px;
         position: relative;
-        left: 20px;
 
         @media (max-width:767px) {
             font-weight: 500;
@@ -102,8 +91,6 @@
         margin: 0 auto;
         gap: 79px;
         margin-bottom: 81px;
-        position: relative;
-        left: 20px;
 
         @media (max-width:767px) {
             gap: 18px;
@@ -288,8 +275,6 @@
         0px 22.34px 17.87px 0px #0000000B,
         0px 41.78px 33.42px 0px #0000000D,
         0px 100px 80px 0px #00000012;
-        position: relative;
-        left: 30px;
         margin-top: 85px;
     }
 
@@ -315,24 +300,25 @@
     &--hot{
         &::after {
             background-image: url("../img/hot.svg");
-            width: 120px;
-            height: 65px;
+            width: 154px;
+            height: 98px;
             content: "Hot!";
             position: absolute;
             font-size: 36px;
-            line-height: 60px;
+            line-height: 81px;
+            padding-right: 12px;
             text-align: center;
-            background-size: cover;
             color: #fff;
             top: 10%;
-            left: -8px;
+            left: -10px;
             filter: drop-shadow(8px 7px 16px #00000015);
             @media (max-width:767px) {
                 width: 59px;
-                height: 32px;
+                height: 42px;
                 font-size: 18px;
-                line-height: 30px;
-                left: -5px;
+                line-height: 48px;
+                padding-left: 15px;
+                filter: drop-shadow(8px 7px 16px #00000015);
             }
     }
 }
@@ -340,24 +326,24 @@
     &--new{
         &::after{
             background-image: url("../img/new.svg");    
-            width: 69px;
-            height: 52px;
+            width: 89px;
+            height: 68px;
             content: "New";
             position: absolute;
             font-size: 16px;
-            line-height: 35px;
+            line-height: 52px;
+            padding-right: 10px;
             text-align: center;
-            background-size: cover;
             color: #fff;
             top: 10%;
             left: -10px;
+            filter: drop-shadow(8px 7px 16px #00000015);
         }
     }
         &__item1{
             border: 2px solid #DEDEDE;
             position: relative;
             border-radius: 25px;
-            padding-top: 20px;
             width: 300px;
             @media (min-width:768px) and (max-width:1727px) {
                 grid-column: 1 / span 2;
@@ -366,14 +352,13 @@
             @media (min-width:1728px) {
                 grid-row: span 2;
                 grid-column: span 2;
-                top: -35px;
                 width: 1042px;
             }
     
             img{
                 display: block;
                 margin: 0 auto;
-                @media (max-width:767px) {
+                @media (max-width:768px) {
                     width: 212px;
                     height: 212px;
                 }

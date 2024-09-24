@@ -5,12 +5,12 @@ import {createOrder} from './api.js';
 
 
 
-const blockMenu = document.querySelector('.user-menu__cart');
-const cartCounter = blockMenu.querySelector('.main-nav__counter');
-const cart = blockMenu.querySelector('.shopping-cart');
-const cartTemplate = blockMenu.querySelector('#shopping-cart__product').content
-const buttonOpen = blockMenu.querySelector('.main-nav__shop');
+const cartCounter = document.querySelector('.main-nav__counter');
+const cart = document.querySelector('.shopping-cart');
+const cartTemplate = document.querySelector('#shopping-cart__product').content
+const buttonOpen = document.querySelector('.main-nav__shop');
 const cartList = cart.querySelector('.shopping-cart__list');
+const articleCart = document.querySelector('.shopping-cart__article');
 
 
 const orderButton = document.querySelector('#order-button');
@@ -20,7 +20,7 @@ orderButton.addEventListener('click', () => {
 
     const newArr = [];
 
-    const arr = data.reduce((acc,curr) => {
+    const arr = data?.reduce((acc,curr) => {
         let id = curr.id;
 
         if(acc[id]){
@@ -39,14 +39,14 @@ orderButton.addEventListener('click', () => {
         newArr.push(newObj);
     }
     createOrder(newArr);
-})
+});
 
 
 const editProduct = (node, product, operation = 'plus') => {
 
     let current = node.querySelector('.shopping-cart__input').value;
-    const targetAmount = blockMenu.querySelector('.shopping-cart__amount span');
-    const targetPrice = blockMenu.querySelector('.shopping-cart__total');
+    const targetAmount = document.querySelector('.shopping-cart__amount span');
+    const targetPrice = document.querySelector('.shopping-cart__total');
 
     if(operation === 'plus'){
         node.querySelector('.shopping-cart__input').value = ++current;
@@ -67,10 +67,10 @@ const editProduct = (node, product, operation = 'plus') => {
         targetPrice.textContent = formatPrice(Number(targetPrice.textContent.replace(/\D/g, "")) - (Number(product.price) * Number(node.querySelector('.shopping-cart__input').value)));
     }
 
-    if(!cartList.childElementCount){
-        document.querySelector('[data-modal-product="cart"]').classList.remove('modal--showed');
+    cartCounter.textContent = getStorage('cart')? getStorage('cart').length:'0';
+    if(!getStorage('cart') || !getStorage('cart').length){
+        articleCart.textContent = 'Ваша корзина пуста';
     }
-
 }
 
 
@@ -78,19 +78,25 @@ const editProduct = (node, product, operation = 'plus') => {
 
 export const removeFromCart = (productId) => {
     const node = cartList.querySelector(`[data-product-id="${productId}"]`);
-    // console.log(nodes)
     node.remove()
     removeFromStorage('cart',productId,true)
-    cartCounter.textContent = cartList.childElementCount;
 };
 
 
 export const renderCart = () => {
     const data = getStorage('cart');
+    cartTemplate.querySelector('.shopping-cart__price').textContent = `${formatPrice(cartTemplate.querySelector('.shopping-cart__price').textContent)}`;
+    
+    buttonOpen.addEventListener('click', () => {
+        OpenModal(buttonOpen);
+    });
 
     if(!data?.length){
+        articleCart.textContent = 'Корзина пуста';
         return;
     }
+
+    document.querySelector('.shopping-cart__article').textContent = 'Корзина Товаров';
 
     let countsData = data.reduce((acc,current) => {
         const id = current.id;
@@ -138,23 +144,17 @@ export const renderCart = () => {
         fragment.append(node);
     });
 
-    const targetAmount = blockMenu.querySelector('.shopping-cart__amount span');
+    const targetAmount = document.querySelector('.shopping-cart__amount span');
     targetAmount.textContent = `${data.length}`;
-    const targetPrice = blockMenu.querySelector('.shopping-cart__total');
+    const targetPrice = document.querySelector('.shopping-cart__total');
     targetPrice.textContent = `${formatPrice(data.reduce((acc,product) => {
         acc += +product.price;
         return acc;
         },0))}`
     cartList.append(fragment);
-    cartCounter.textContent = cartList.childElementCount;
-
-
-    buttonOpen.addEventListener('click', () => {
-        if(cartList.childElementCount){
-            OpenModal(buttonOpen)
-        }
-    })
+    cartCounter.textContent = getStorage('cart').length;
 }
 
-renderCart()
+renderCart();
+
 

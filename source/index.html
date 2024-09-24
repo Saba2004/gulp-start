@@ -47,36 +47,11 @@
         <button class="main-nav__find">
           <img src="img/find.svg" alt="Лупа">
         </button>
-        <div class="user-menu__cart"> 
+        <div class="main-nav__cart"> 
           <button class="main-nav__shop" data-modal-btn="cart">
             <img src="img/shop.svg" alt="Корзина">
             <span class="main-nav__counter">0</span>
           </button>
-          <div class="modal" data-modal-product="cart"> 
-            <div class="shopping-cart">
-              <div class="modal__close"><img src="img/close.svg" alt="close" class="modal__close-img"></div>
-              <h2 class="shopping-cart__article">Корзина товаров</h2>
-              <template id="shopping-cart__product">
-                <li class="shopping-cart__item">
-                  <button class="shopping-cart__delete">Удалить</button> 
-                  <img src="" alt="" class="shopping-cart__image">
-                  <h3 class="shopping-cart__name">Running sport shoe</h3>
-                  <div class="shopping-cart__count">  
-                    <button class="shopping-cart__minus">-</button>
-                    <input type="text" class="shopping-cart__input">
-                    <button class="shopping-cart__plus">+</button>
-                  </div>
-                  <div class="shopping-cart__price">3999 ₽</div>
-                </li>
-              </template>
-              <ul class="shopping-cart__list"></ul>
-              <span class="shopping-cart__itogo">Итого:</span>
-              <span class="shopping-cart__amount"><span>0</span> шт.</span>
-              <span class="shopping-cart__total">0</span>
-              <button class="shopping-cart__order" id="order-button">Оформить заказ</button>
-            </div>
-          </div>
-        </div>
         <button class="main-nav__burger">
           <img src="img/burger.svg" alt="Бургер">
         </button>
@@ -97,11 +72,13 @@
             </span>
             <span>
               кроссы
+              <div class="hero__text"> 
+                Какой-То Супер-Мотивирующий Текст
+                Чтоб Купили Прям Вообще Всё
+              </div>
             </span>
           </div>
           <div class="hero__text">
-            Какой-То Супер-Мотивирующий Текст
-            Чтоб Купили Прям Вообще Всё
           </div>
         </div>
         <button class="hero__button button">
@@ -169,30 +146,39 @@
 
     <section class="reviews">
       <div class="reviews__container">
-        <div class="reviews__title">Отзывы о кроссах</div>
+        <div class="reviews__title">Отзывы <span>О кроссах</span></div>
         <div class="reviews__cards">
           <div class="reviews__item">
-            <div class="reviews__image">
-              <img src="img/woman.png" alt="woman">
-            </div>
-            <div class="reviews__info">
-              <div class="reviews__name">Ava Joshi</div>
-                <div class="reviews__rate1"></div>
-                <div class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
+            <div class="reviews__compound">
+              <div class="reviews__image">
+                <img src="img/woman.png" alt="woman">
               </div>
+              <div class="reviews__info">
+                <div class="reviews__name">Ava Joshi</div>
+                <div class="reviews__rate1"></div>
+                <div class="reviews__text1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua.
+                </div>
+              </div>
+            </div>
+            <div class="reviews__text2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
             </div>
           </div>
           <div class="reviews__item">
-            <div class="reviews__image">
-              <img src="img/man.png" alt="man">
-            </div>
-            <div class="reviews__info">
-              <div class="reviews__name">Otis bisnoy</div>
-              <div class="reviews__rate2"></div>
-              <div class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
+            <div class="reviews__compound">
+              <div class="reviews__image">
+                <img src="img/man.png" alt="woman">
               </div>
+              <div class="reviews__info">
+                <div class="reviews__name">Otis bisnoy</div>
+                <div class="reviews__rate1"></div>
+                <div class="reviews__text1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua.</div>
+              </div>
+            </div>
+            <div class="reviews__text2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
             </div>
           </div>
         </div>
@@ -202,12 +188,45 @@
     <div data-modal-product="modal_product" class="modal">
       <div class="modal__content">
         <div class="modal__inner">
+          <div class="modal__close-img"><img src="img/close.svg" alt="close"></div>
           <div class="modal__title">Товар успешно добавлен в корзину</div>
-          <div class="modal__close"><img src="img/close.svg" alt="close" class="modal__close-img"></div>
           <button class="modal__button button">Продолжить Покупки</button>
         </div>
       </div>
     </div>
+
+    <div class="modal" data-modal-product="cart"> 
+      <div class="shopping-cart">
+        <div class="modal__close-img"><img src="img/close.svg" alt="close"></div>
+        <h2 class="shopping-cart__article">Корзина товаров</h2>
+        <template id="shopping-cart__product">
+          <li class="shopping-cart__item">
+            <div class="shopping-cart__upper-mobile"> 
+              <button class="shopping-cart__delete"><img src="img/close.svg" alt="Закрыть"></button> 
+              <img src="" alt="" class="shopping-cart__image">
+              <h3 class="shopping-cart__name">Running sport shoe</h3>
+            </div>
+            <div class="shopping-cart__down-mobile">
+              <div class="shopping-cart__operation">  
+                <button class="shopping-cart__minus">-</button>
+                <input type="text" class="shopping-cart__input">
+                <button class="shopping-cart__plus">+</button>
+              </div>
+              <div class="shopping-cart__price">3999 ₽</div>
+            </div>
+            </div>
+          </li>
+        </template>
+        <ul class="shopping-cart__list"></ul>
+        <div class="shopping-cart__info"> 
+          <span class="shopping-cart__result">Итого:</span>
+          <span class="shopping-cart__amount"><span>0</span> шт.</span>
+          <span class="shopping-cart__total">0 ₽</span>
+        </div>
+        <button class="shopping-cart__order" id="order-button">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
   </main>
   <script src="js/main.js" defer type="module"></script>
 </body>
