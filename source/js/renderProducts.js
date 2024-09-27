@@ -1,4 +1,8 @@
-import { OpenModal } from './script.js';
+import { OpenModal, CloseModal } from './modals.js';
+import { renderCart } from './productCart.js';
+import './script.js';
+import { addToStorage } from './localstorage.js';
+import formatPrice from './formatPrice.js';
 
 export default (products,template,target,isTargetList = false, templateClass = '') => {
     const fragment = document.createDocumentFragment();
@@ -45,12 +49,14 @@ export default (products,template,target,isTargetList = false, templateClass = '
 
         buttonEl.addEventListener('click', () => {
             OpenModal(buttonEl)
+            addToStorage('cart', product);
+            renderCart()
         })
 
         imageEl.src = image;
         nameEl.textContent = name;
-        priceElNew.textContent = price;
-        priceElOld.textContent = oldPrice;
+        priceElNew.textContent = formatPrice(price);
+        priceElOld.textContent = formatPrice(oldPrice);
     
         fragment.appendChild(itemEl);
     });

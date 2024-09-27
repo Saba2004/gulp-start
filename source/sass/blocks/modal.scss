@@ -11,6 +11,8 @@
 
     &__inner{
         position: relative;
+        display: flex;
+        flex-direction: column;
     }
 
     &__content{
@@ -37,14 +39,12 @@
         color: #000000;
         font-size: 32px;
         line-height: 38.73px;
-        padding: 10px 40px 0px;
+        padding: 0px 40px;
         font-weight: 500;
     }
 
     &__close{
-        position: absolute;
-        top: 3px;
-        right: 3px;
+        align-self: flex-end;
         img{
             width: 20px;
             height: 20px;
@@ -56,10 +56,25 @@
         margin: 0 auto;
         width: 313px;
         height: 63px;
-        margin-top: 37px;
+        margin-top: 35px;
     }
 
     &--showed{
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    &__close-img{
+        position: relative;
+        align-self: flex-end;
+        img{
+            width: 20px;
+            height: 20px;
+        }
+        @media (max-width:767px) {
+            display: none;
+        }
     }
 }

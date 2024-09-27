@@ -5,6 +5,9 @@ const catalogItemTemplate = document.querySelector('#best-selling-product').cont
 
 import { fetchParams } from './api.js';
 
+
 const dataProducts = fetchParams('https://zsa-studio.ru/catalog.php');
+
 dataProducts.then((products) => renderProducts(products, catalogItemTemplate, catalogList,true));
+
 
