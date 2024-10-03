@@ -85,6 +85,7 @@
     }
 
     &__buttons{
+        @include clear-button;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -424,7 +425,7 @@
             text-decoration: line-through;
         }
     
-        &__button{
+        &__button-circle{
             width: 38px;
             height: 38px;
             border-radius: 50%;
