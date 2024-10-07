@@ -180,6 +180,7 @@
         height: 11px;
         background-color: #000000;
         border-radius: 50%;
+        transition: width 0.5s;
 
         &--big{
             @include clear-button;
