@@ -1,6 +1,5 @@
 import { OpenModal, CloseModal } from './modals.js';
 import { renderCart } from './productCart.js';
-import './script.js';
 import { addToStorage } from './localstorage.js';
 import formatPrice from './formatPrice.js';
 
@@ -40,7 +39,7 @@ export default (products,template,target,isTargetList = false, templateClass = '
             priceElOld.classList.remove('best-selling__price-old');
             priceElOld.classList.add('best-selling__sale');
             buttonEl.classList.remove('best-selling__button1');
-            buttonEl.classList.add('best-selling__button');
+            buttonEl.classList.add('best-selling__button-circle');
         }
 
         if(status?.length){
