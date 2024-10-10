@@ -29,10 +29,10 @@
 
         @keyframes score-scroll {   
             0% {     
-                transform: translateX(-140%); 
+                transform: translateX(-110%); 
             }   
             100% {
-                transform: translateX(140%);
+                transform: translateX(120%);
             }
         }
         animation: score-scroll 6s linear infinite;
