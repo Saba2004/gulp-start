@@ -1,5 +1,6 @@
 @import 'common/fonts.scss';
 
+@import 'common/clear-input.scss';
 @import 'common/clear-button.scss';
 @import 'common/clear-list.scss';
 @import 'root.scss';
@@ -8,9 +9,10 @@
 @import 'blocks/button.scss';
 @import 'blocks/social.scss';
 
-
+@import 'blocks/order.scss';
 @import 'blocks/modal.scss';
 @import 'blocks/animation.scss';
+@import 'blocks/feedback.scss';
 @import 'blocks/goods.scss';
 @import 'blocks/banners.scss';
 @import 'blocks/shopping-cart.scss';

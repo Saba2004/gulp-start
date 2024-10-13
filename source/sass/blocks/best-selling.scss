@@ -114,6 +114,7 @@
     }
 
     &__women{
+        @include clear-button;
         width: 219px;
         height: 79px;
         font-size: 28px;
@@ -427,6 +428,7 @@
         }
     
         &__button-circle{
+            @include clear-button;
             width: 38px;
             height: 38px;
             border-radius: 50%;

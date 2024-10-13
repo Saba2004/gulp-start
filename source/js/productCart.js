@@ -1,8 +1,8 @@
-// import { addToStorage, removeFromStorage, amountCostCart, getStorage } from "./localstorage.js";
 import { Storage } from "./localstorage.js";
-import { modalCart } from "./modals.js";
+import { Modal } from "./modals.js";
 import formatPrice from "./formatPrice.js";
 import {createOrder} from './api.js';
+
 
 
 
@@ -15,11 +15,43 @@ const articleCart = document.querySelector('.shopping-cart__article');
 
 
 const orderButton = document.querySelector('#order-button');
+const orderConfirm = document.getElementById('order-confirm');
+const modalCart = new Modal('.modal_cart',{
+    activeClass: 'modal--showed',
+    closeSelector: '.modal__close',
+    btnContinueSelector: '.modal__button'
+});
 const storageName = new Storage('cart');
+const orderModal = new Modal('.modal__order',{
+    activeClass: 'modal--showed',
+    closeSelector: '.modal__close',
+    btnContinueSelector: '.modal__button'
+});
+const errorModal = new Modal('.modal__error',{
+    activeClass: 'modal--showed',
+    closeSelector: '.modal__close',
+    btnContinueSelector: '.modal__button'
+});
+
+const successModal = new Modal('.modal__success',
+    {
+        activeClass: 'modal--showed',
+        closeSelector: '.modal__close',
+        btnContinueSelector: '.modal__button'
+    }
+);
 
 orderButton.addEventListener('click', () => {
     const data = storageName.getStorage();
-    debugger;
+    if(data !== null){
+        Modal.closeAllModal();
+        orderModal.openModal();
+        orderModal.closeModal();
+    } else {
+        Modal.closeAllModal();
+        errorModal.openModal();
+        errorModal.closeModal();
+    }
 
     const newArr = [];
 
@@ -43,6 +75,36 @@ orderButton.addEventListener('click', () => {
     }
     createOrder(newArr);
 });
+
+orderConfirm.addEventListener('click',(event) => {
+    event.preventDefault();
+    const userPhone = document.querySelector('.order__phone');
+    const checkBox = document.querySelector('.order__checkbox');
+
+    if(checkBox.checked && userPhone.value.length !== 0){
+        const userData = {
+            'phone': userPhone.value,   
+        };
+
+        fetch('telegram.php',{
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json; charset:utf-8"
+            },
+            "body" : JSON.stringify(userData)
+        });
+
+        Modal.closeAllModal();
+        successModal.openModal();
+        successModal.closeModal();
+    } else {
+        errorModal.openModal();
+        errorModal.closeModal();
+    }
+
+});
+
+
 
 
 const editProduct = (node, product, operation = 'plus') => {
@@ -88,12 +150,12 @@ export const removeFromCart = (productId) => {
 
 export const renderCart = () => {
     const data = storageName.getStorage();
-    console.log(data)
     cartTemplate.querySelector('.shopping-cart__price').textContent = `${formatPrice(cartTemplate.querySelector('.shopping-cart__price').textContent)}`;
     
     buttonOpen.addEventListener('click', () => {
         // OpenModal(buttonOpen);
-        modalCart.openAndCloseModal();
+        modalCart.openModal();
+        modalCart.closeModal();
     });
 
     if(!data?.length){

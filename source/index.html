@@ -326,10 +326,44 @@
       </div>
     </section>
 
+    <footer class="feedback">  
+      <div class="feedback__container">
+        <div class="feedback__inner"> 
+          <div class="feedback__media"> 
+            <img src="img/slickfooter.png" alt="slick" class="feedback__img">
+            <div class="feedback__article">Какие Мы Крутые, У Нас Лучшие Кроссы и Ваще... Всё.</div>
+            <div class="feedback__social">  
+              <a href="telegram.com"><img src="img/tg-white.svg" alt="vk"></a>
+              <a href="vk.com"><img src="img/vk-white.svg" alt="vk"></a>
+            </div>
+          </div>
+          <div class="feedback__request"> 
+            <h4 class="feedback__form-text">Подпишись на наши акции</h4>
+            <form action="#" class="feedback__form">
+              <label for="email">
+                <input type="text" class="feedback__input" id="email" placeholder="Введи Email...">
+              </label>
+              <button type="submit" class="feedback__button">Подписаться</button>
+            </form>
+            <div class="feedback__line"></div>
+          </div>
+          <div class="feedback__menu">
+            <h3 class="feedback__name">Быстрые ссылки</h3>
+            <ul class="feedback__list"> 
+              <li class="feedback__item"><a href="#">Главная</a></li>
+              <li class="feedback__item"><a href="#">Магазин</a></li>
+              <li class="feedback__item"><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+        <h4 class="feedback__text">www.slick.com©all right reserve</h4>
+      </div>
+    </footer>
+
     <div data-modal-product="modal_product" class="modal modal_product">
       <div class="modal__content">
         <div class="modal__inner">
-          <div class="modal__close-img"><img src="img/close.svg" alt="close"></div>
+          <button class="modal__close"><img src="img/close.svg" alt="close"></button>
           <div class="modal__title">Товар успешно добавлен в корзину</div>
           <button class="modal__button button">Продолжить Покупки</button>
         </div>
@@ -338,7 +372,7 @@
 
     <div class="modal modal_cart" data-modal-product="cart"> 
       <div class="shopping-cart">
-        <div class="modal__close-img"><img src="img/close.svg" alt="close"></div>
+        <button class="modal__close"><img src="img/close.svg" alt="close"></button>
         <h2 class="shopping-cart__article">Корзина товаров</h2>
         <template id="shopping-cart__product">
           <li class="shopping-cart__item">
@@ -365,6 +399,42 @@
           <span class="shopping-cart__total">0 ₽</span>
         </div>
         <button class="shopping-cart__order" id="order-button">Оформить заказ</button>
+      </div>
+    </div>
+    <div class="modal modal__order" data-modal-order="order">
+      <div class="order__container">
+        <button class="modal__close"><img src="img/close.svg" alt="close"></button>
+        <h2 class="order__article">Для оформления заказа укажите ваш номер телефона:</h2>
+        <form action="#"  class="order__form">
+          <div class="order__group">  
+            <label for="user_phone"></label>
+            <input type="text" class="order__phone" id="user_phone" name="user_phone" placeholder="Номер телефона">
+            <div class="order__box"> 
+              <input id="policy" type="checkbox" class="order__checkbox">
+              <label for="policy" class="order__checkbox--text">Согласен с политикой конфиденциальности</label>
+            </div>
+          </div>
+          <button type="submit" class="order__button" id="order-confirm">Отправить</button>
+        </form>
+      </div>  
+    </div>
+    <div data-modal-error="modal__error" class="modal modal__error">
+      <div class="modal__content">
+        <div class="modal__inner">
+          <button class="modal__close"><img src="img/close.svg" alt="close"></button>
+          <div class="modal__title modal__title--red">Ошибка!</div>
+          <div class="modal__text">Что-то пошло не так. Возможно, вы пытаетесь отправить пустую форму, или ваша корзина пуста.</div>
+          <button class="modal__button button">Продолжить Покупки</button>
+        </div>
+      </div>
+    </div>
+    <div data-modal-success="modal__success" class="modal modal__success">
+      <div class="modal__content">
+        <div class="modal__inner">
+          <button class="modal__close"><img src="img/close.svg" alt="close"></button>
+          <div class="modal__title">Заказ оформлен. Ожидайте звонка</div>
+          <button class="modal__button button">Вернуться на главную</button>
+        </div>
       </div>
     </div>
   </div>
