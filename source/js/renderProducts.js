@@ -1,7 +1,14 @@
-import { OpenModal, CloseModal } from './modals.js';
+import { Modal } from './modals.js';
 import { renderCart } from './productCart.js';
-import { addToStorage } from './localstorage.js';
+import { Storage } from './localstorage.js';
 import formatPrice from './formatPrice.js';
+
+const storageName = new Storage('cart');
+const modalProduct = new Modal('.modal_product',{
+    activeClass: 'modal--showed',
+    closeSelector: '.modal__close',
+    btnContinueSelector: '.modal__button'
+});
 
 export default (products,template,target,isTargetList = false, templateClass = '') => {
     const fragment = document.createDocumentFragment();
@@ -47,8 +54,9 @@ export default (products,template,target,isTargetList = false, templateClass = '
         }
 
         buttonEl.addEventListener('click', () => {
-            OpenModal(buttonEl)
-            addToStorage('cart', product);
+            modalProduct.openModal();
+            modalProduct.closeModal();
+            storageName.addToStorage(product);
             renderCart()
         })
 

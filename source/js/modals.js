@@ -1,24 +1,42 @@
-export const CloseModal = (modal) => {
-    const close = modal.querySelector('.modal__close-img img');
-    const buttonContinue = modal.querySelector('.modal__button');
-    modal.addEventListener('click',(event) => { 
-        if(event.target === close || event.target === buttonContinue || (event.target === modal)){
-            modal.classList.remove('modal--showed')
-        }
-    });
+export class Modal{
+    static allModal = document.querySelectorAll('.modal');
+    static activeClass = 'modal--showed';
+    constructor(selectorModal,options){
+        const {activeClass,closeSelector,btnContinueSelector} = options;
+        this.modal = document.querySelector(selectorModal);
+        this.activeClass = activeClass;
+        this.closeBtn = this.modal.querySelector(closeSelector);
+        this.btnContinue = this.modal.querySelector(btnContinueSelector);
+    }
 
-};
-
-export const OpenModal = (button) => {
-    const name = button.getAttribute('data-modal-btn');
-    const modal = document.querySelector(`[data-modal-product="${name}"]`);
-
-    if(!modal){
-        return;
+    openModal(){
+        this.modal.classList.add(this.activeClass);
+        
     };
 
-    modal.classList.add('modal--showed');
+    closeModal(){
+        this.modal.addEventListener('click',(event) => {
+            if(event.target.closest('.modal__close') === this.closeBtn || event.target === this.btnContinue || (event.target === this.modal)){
+                this.modal.classList.remove(this.activeClass);
+            }
+            event.stopPropagation();
 
-    CloseModal(modal);
-};   
+            // this.closeBtn.addEventListener('click', () => {
+            //     this.modal.classList.remove(this.activeClass);
+            // });
+
+            // this.btnContinue.addEventListener('click',() => {
+            //     this.modal.classList.remove(this.activeClass);
+            // })
+        });
+    };
+
+    static closeAllModal(){
+        this.allModal.forEach(modal => {
+            if(modal.classList.contains(this.activeClass)){
+                modal.classList.remove(this.activeClass)
+            }
+        })
+    };
+}; 
 

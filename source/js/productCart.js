@@ -1,7 +1,8 @@
-import { addToStorage, removeFromStorage, amountCostCart, getStorage } from "./localstorage.js";
-import { OpenModal } from "./modals.js";
+import { Storage } from "./localstorage.js";
+import { Modal } from "./modals.js";
 import formatPrice from "./formatPrice.js";
 import {createOrder} from './api.js';
+
 
 
 
@@ -14,9 +15,43 @@ const articleCart = document.querySelector('.shopping-cart__article');
 
 
 const orderButton = document.querySelector('#order-button');
+const orderConfirm = document.getElementById('order-confirm');
+const modalCart = new Modal('.modal_cart',{
+    activeClass: 'modal--showed',
+    closeSelector: '.modal__close',
+    btnContinueSelector: '.modal__button'
+});
+const storageName = new Storage('cart');
+const orderModal = new Modal('.modal__order',{
+    activeClass: 'modal--showed',
+    closeSelector: '.modal__close',
+    btnContinueSelector: '.modal__button'
+});
+const errorModal = new Modal('.modal__error',{
+    activeClass: 'modal--showed',
+    closeSelector: '.modal__close',
+    btnContinueSelector: '.modal__button'
+});
+
+const successModal = new Modal('.modal__success',
+    {
+        activeClass: 'modal--showed',
+        closeSelector: '.modal__close',
+        btnContinueSelector: '.modal__button'
+    }
+);
 
 orderButton.addEventListener('click', () => {
-    const data = getStorage('cart');
+    const data = storageName.getStorage();
+    if(data !== null){
+        Modal.closeAllModal();
+        orderModal.openModal();
+        orderModal.closeModal();
+    } else {
+        Modal.closeAllModal();
+        errorModal.openModal();
+        errorModal.closeModal();
+    }
 
     const newArr = [];
 
@@ -40,6 +75,36 @@ orderButton.addEventListener('click', () => {
     }
     createOrder(newArr);
 });
+
+orderConfirm.addEventListener('click',(event) => {
+    event.preventDefault();
+    const userPhone = document.querySelector('.order__phone');
+    const checkBox = document.querySelector('.order__checkbox');
+
+    if(checkBox.checked && userPhone.value.length !== 0){
+        const userData = {
+            'phone': userPhone.value,   
+        };
+
+        fetch('telegram.php',{
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json; charset:utf-8"
+            },
+            "body" : JSON.stringify(userData)
+        });
+
+        Modal.closeAllModal();
+        successModal.openModal();
+        successModal.closeModal();
+    } else {
+        errorModal.openModal();
+        errorModal.closeModal();
+    }
+
+});
+
+
 
 
 const editProduct = (node, product, operation = 'plus') => {
@@ -67,8 +132,8 @@ const editProduct = (node, product, operation = 'plus') => {
         targetPrice.textContent = formatPrice(Number(targetPrice.textContent.replace(/\D/g, "")) - (Number(product.price) * Number(node.querySelector('.shopping-cart__input').value)));
     }
 
-    cartCounter.textContent = getStorage('cart')? getStorage('cart').length:'0';
-    if(!getStorage('cart') || !getStorage('cart').length){
+    cartCounter.textContent = storageName.getStorage() ? storageName.getStorage().length:'0';
+    if(!storageName.getStorage() || !storageName.getStorage().length){
         articleCart.textContent = 'Ваша корзина пуста';
     }
 }
@@ -79,16 +144,18 @@ const editProduct = (node, product, operation = 'plus') => {
 export const removeFromCart = (productId) => {
     const node = cartList.querySelector(`[data-product-id="${productId}"]`);
     node.remove()
-    removeFromStorage('cart',productId,true)
+    storageName.removeFromStorage(productId,true);
 };
 
 
 export const renderCart = () => {
-    const data = getStorage('cart');
+    const data = storageName.getStorage();
     cartTemplate.querySelector('.shopping-cart__price').textContent = `${formatPrice(cartTemplate.querySelector('.shopping-cart__price').textContent)}`;
     
     buttonOpen.addEventListener('click', () => {
-        OpenModal(buttonOpen);
+        // OpenModal(buttonOpen);
+        modalCart.openModal();
+        modalCart.closeModal();
     });
 
     if(!data?.length){
@@ -125,12 +192,12 @@ export const renderCart = () => {
         node.querySelector('.shopping-cart__input').value = countsData[product.id] || 0;
 
         node.querySelector('.shopping-cart__minus').addEventListener('click', () => {
-            removeFromStorage('cart',product.id);
+            storageName.removeFromStorage(product.id);
             editProduct(node,product,'minus');
         })
 
         node.querySelector('.shopping-cart__plus').addEventListener('click', () => {
-            addToStorage('cart',product);
+            storageName.addToStorage(product);
             editProduct(node,product,'plus');
 
         })
@@ -152,9 +219,12 @@ export const renderCart = () => {
         return acc;
         },0))}`
     cartList.append(fragment);
-    cartCounter.textContent = getStorage('cart').length;
+    cartCounter.textContent = storageName.getStorage().length;
 }
 
 renderCart();
+
+
+
 
 

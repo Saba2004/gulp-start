@@ -8,6 +8,7 @@ export const fetchParams =  async (url) => {
     }
 };
 
+
 export const createOrder = async (url,data) => {
     const response = await fetch(url, {
         method: 'POST',

@@ -1,0 +1,129 @@
+.feedback{
+    background-color: #000000;
+    &__container{
+        max-width: 1560px;
+        margin: 0 auto;
+        
+    }
+
+    &__text{
+        display: block;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 21.78px;
+        color: #FFFFFF;
+        text-align: center;
+
+        @media (min-width:767px) {
+            margin-left: 120px;
+        }
+    }
+
+    &__article{
+        font-size: 14px;
+        line-height: 21.56px;
+        color: #FFFFFF;
+        max-width: 300px;
+        margin-top: 10px;
+    }
+
+    &__social{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-top: 16px;
+    }
+
+    &__menu{
+        @media (max-width:767px) {
+            display: none;
+        }
+    }
+
+    &__name{
+        color: #FFFFFF;
+        font-size: 20px;
+        line-height: 24.2px;
+        font-weight: 500;
+    }
+
+    &__list{
+        @include clear-list;
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    &__item{
+        color: #FFFFFF;
+        font-size: 18px;
+        line-height: 21.78px;
+    }
+
+    &__inner{
+        padding-top: 20px;
+        @media (min-width:768px) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 77px;
+        margin-top: 10px;
+    }
+
+    &__line{
+        width: 66px;
+        height: 3px;
+        background-color: #fff;
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+
+    &__form-text{
+        text-align: center;
+        margin: 0 auto;
+        color: #FFFFFF;
+        font-size: 20px;
+        line-height: 24.2px;
+        font-weight: 400;
+        
+    }
+
+    &__input{
+        @include clear-input;
+        padding: 12px 35px;
+        border: transparent;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        font-size: 14px;
+        line-height: 16.94px;
+        color: #000000BF;
+        border-right: none
+    }
+
+    &__button{
+        @include clear-button;
+        background-color: #fff;
+        color: #000000;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 12px;
+        font-size: 14px;
+        line-height: 16.94px;
+        font-weight: 500;
+        // border: 1px solid rgba(0,0,0,0.2);
+
+        &::before{
+            content: '';
+            width: 18px;
+            height: 1px;
+            
+        }
+    }
+
+}

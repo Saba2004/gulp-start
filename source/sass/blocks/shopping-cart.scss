@@ -122,6 +122,7 @@
     }
 
     &__order{
+        @include clear-button;
         display: block;
         width: 312px;
         height: 63px;
