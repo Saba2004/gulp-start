@@ -3,6 +3,9 @@
     &__container{
         max-width: 1560px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         
     }
 
@@ -13,10 +16,8 @@
         line-height: 21.78px;
         color: #FFFFFF;
         text-align: center;
-
-        @media (min-width:767px) {
-            margin-left: 120px;
-        }
+        padding-bottom: 10px;
+        
     }
 
     &__article{
@@ -35,6 +36,7 @@
     }
 
     &__menu{
+        padding-right: 20px;
         @media (max-width:767px) {
             display: none;
         }
@@ -85,13 +87,14 @@
     }
 
     &__form-text{
+
         text-align: center;
-        margin: 0 auto;
         color: #FFFFFF;
         font-size: 20px;
         line-height: 24.2px;
         font-weight: 400;
-        
+        padding-bottom: 10px;
+        margin: 0;
     }
 
     &__input{
@@ -103,7 +106,12 @@
         font-size: 14px;
         line-height: 16.94px;
         color: #000000BF;
-        border-right: none
+        border-right: none;
+
+        @media (max-width:767px) {
+            padding: 12px 12px;
+        }
+        
     }
 
     &__button{
@@ -123,6 +131,22 @@
             width: 18px;
             height: 1px;
             
+        }
+    }
+
+    &__media{
+        padding: 30px 15px;
+    }
+
+    &__request{
+        margin-top: 20px;
+        
+        @media (min-width:767px) and (max-width: 1727px) {
+            margin-top: 220px;
+        }
+
+        @media (min-width:767px) {
+            padding-right: 120px;
         }
     }
 

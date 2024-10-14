@@ -337,11 +337,11 @@
               <a href="vk.com"><img src="img/vk-white.svg" alt="vk"></a>
             </div>
           </div>
-          <div class="feedback__request"> 
-            <h4 class="feedback__form-text">Подпишись на наши акции</h4>
+          <div class="feedback__request">
+            <legend class="feedback__form-text">Подпишись на наши акции</legend>
             <form action="#" class="feedback__form">
               <label for="email">
-                <input type="text" class="feedback__input" id="email" placeholder="Введи Email...">
+                <input type="email" class="feedback__input" id="email" placeholder="Введи Email..." required>
               </label>
               <button type="submit" class="feedback__button">Подписаться</button>
             </form>
@@ -408,7 +408,7 @@
         <form action="#"  class="order__form">
           <div class="order__group">  
             <label for="user_phone"></label>
-            <input type="text" class="order__phone" id="user_phone" name="user_phone" placeholder="Номер телефона">
+            <input type="phone" class="order__phone" pattern="^\+7[1-9]{10}$" id="user_phone" name="user_phone" placeholder="Номер телефона" required>
             <div class="order__box"> 
               <input id="policy" type="checkbox" class="order__checkbox">
               <label for="policy" class="order__checkbox--text">Согласен с политикой конфиденциальности</label>
@@ -423,7 +423,7 @@
         <div class="modal__inner">
           <button class="modal__close"><img src="img/close.svg" alt="close"></button>
           <div class="modal__title modal__title--red">Ошибка!</div>
-          <div class="modal__text">Что-то пошло не так. Возможно, вы пытаетесь отправить пустую форму, или ваша корзина пуста.</div>
+          <div class="modal__text">Что-то пошло не так. Возможно, вы пытаетесь отправить некорректные данные</div>
           <button class="modal__button button">Продолжить Покупки</button>
         </div>
       </div>
@@ -434,6 +434,15 @@
           <button class="modal__close"><img src="img/close.svg" alt="close"></button>
           <div class="modal__title">Заказ оформлен. Ожидайте звонка</div>
           <button class="modal__button button">Вернуться на главную</button>
+        </div>
+      </div>
+    </div>
+    <div data-modal-email="modal__email" class="modal modal__email">
+      <div class="modal__content">
+        <div class="modal__inner">
+          <button class="modal__close"><img src="img/close.svg" alt="close"></button>
+          <div class="modal__title">Проверьте ваш email
+            и подтвердите подписку</div>
         </div>
       </div>
     </div>

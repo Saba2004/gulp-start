@@ -1,6 +1,7 @@
 import renderProducts from './renderProducts.js';
 import './slider.js';
 import './script.js';
+import './email.js';
 
 const catalogList = document.querySelector('.best-selling__catalog');
 const catalogItemTemplate = document.querySelector('#best-selling-product').content;

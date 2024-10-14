@@ -2,6 +2,7 @@ import { Storage } from "./localstorage.js";
 import { Modal } from "./modals.js";
 import formatPrice from "./formatPrice.js";
 import {createOrder} from './api.js';
+import { testPhone } from "./regular.js";
 
 
 
@@ -27,7 +28,7 @@ const orderModal = new Modal('.modal__order',{
     closeSelector: '.modal__close',
     btnContinueSelector: '.modal__button'
 });
-const errorModal = new Modal('.modal__error',{
+export const errorModal = new Modal('.modal__error',{
     activeClass: 'modal--showed',
     closeSelector: '.modal__close',
     btnContinueSelector: '.modal__button'
@@ -76,12 +77,11 @@ orderButton.addEventListener('click', () => {
     createOrder(newArr);
 });
 
-orderConfirm.addEventListener('click',(event) => {
-    event.preventDefault();
+orderConfirm.addEventListener('click',() => {
     const userPhone = document.querySelector('.order__phone');
     const checkBox = document.querySelector('.order__checkbox');
 
-    if(checkBox.checked && userPhone.value.length !== 0){
+    if(checkBox.checked && testPhone(userPhone.value)){
         const userData = {
             'phone': userPhone.value,   
         };
