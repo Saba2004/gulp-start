@@ -1,5 +1,6 @@
 // исходник НЕЛЬЗЯ ИЗМЕНЯТЬ
 
+
 const flats = [
   {
     floor: 3,
@@ -69,44 +70,82 @@ const projects = [
   }
 ];
 
-const newDataName = [...new Set(flats.map(item => item.project.name))];
-const indexArray = {};
-newDataName.forEach((item,index) => {
-  indexArray[index + 1] = item
-});
 
-const obj1 = {};
+// 1 Способ (без Map and Set)
+// const resultArr = [];
+// let indexArray = {};
 
-flats.forEach((item,index) => {
-  if(obj1[item.project.id]){
-    obj1[item.project.id].push({
-      floor: item.floor,
-      rooms : item.rooms
-    })
-  } else {
-    obj1[item.project.id] = 
+// const newSortedFlats = flats.sort((a,b) => a.project.id - b.project.id); // сортировка по id исходного массива
+// // Создание итогового массива с помощью добавления данных в объект по id.
+// newSortedFlats.forEach(item => {
+//   if(('id' in indexArray) && (indexArray['id'] !== item.project.id)){
+//     resultArr.push(indexArray)
+//     indexArray = {}
+//   }
+//   if(!indexArray['id']){
+//     indexArray['id'] = item.project.id,
+//     indexArray['name'] = item.project.name,
+//     indexArray['flat'] = 
+//     [ 
+//       {
+//         floor: item.floor,
+//         rooms: item.rooms
+//       },
+//     ]
+//   } else if(indexArray['id'] === item.project.id){
+//     indexArray['flat'].push({
+//       floor: item.floor,
+//       rooms : item.rooms
+//     })
+//   }
+  
+// });
+
+// resultArr.push(indexArray) // Добавляем данные по последнему id;
+// console.log(resultArr);
+
+//Сложность алгоритма как я понял On так как никаких вложенных циклов 
+
+// 2 способ 
+
+const resultArr = [];
+
+const newSortedArray = flats.sort((a,b) => a.project.id - b.project.id);
+
+const setFlatsId = new Set(newSortedArray.map(item => item.project.id)) // set idшников
+const setFlatName = [...new Set(newSortedArray.map(item => item.project.name))] // set name 
+
+let indexArray = new Map();
+
+newSortedArray.forEach(item => {
+  if((indexArray.get('id')) && (indexArray.get('id') !== item.project.id)){
+    resultArr.push(indexArray)
+    indexArray = new Map();
+  }
+  if(!indexArray.get('id')){
+    indexArray.set('id',item.project.id),
+    indexArray.set('name',item.project.name),
+    indexArray.set('flat', 
     [ 
       {
         floor: item.floor,
         rooms: item.rooms
       },
-    ]
-  }
-  }
-);
-
-const arr = [];
-
-for(let key in obj1){
-  if(obj1.hasOwnProperty(key)){
-    arr.push({
-      id: +key,
-      name: indexArray[+key],
-      flats: obj1[key]
+    ])
+  } else if(indexArray.get('id') === item.project.id){
+    indexArray.get('flat').push({
+      floor: item.floor,
+      rooms : item.rooms
     })
   }
-};
+  
+});
 
-//Сложность алгоритма как я понял On так как никаких вложенных циклов 
+resultArr.push(indexArray)
+
+
+
+
+
 
 
